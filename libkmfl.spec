@@ -1,5 +1,5 @@
 %define name	libkmfl
-%define version	0.9.5
+%define version	0.9.6
 %define release	%mkrel 1
 
 %define major		0
@@ -11,7 +11,7 @@ Summary:	Keystroke interpreter for Tavultesoft Keyman files
 Version:	%{version}
 Release:	%{release}
 Group:		System/Internationalization
-License:	GPL+
+License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/kmfl/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
