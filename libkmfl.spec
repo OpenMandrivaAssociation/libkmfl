@@ -8,7 +8,7 @@
 Name:		%{name}
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
 Version:	%{version}
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
