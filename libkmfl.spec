@@ -1,20 +1,19 @@
-%define name	libkmfl
-%define version	0.9.6
+%define _disable_ld_no_undefined 1
 
-%define major		0
-%define libname		%mklibname kmfl %{major}
-%define develname	%mklibname kmfl -d
+%define major 0
+%define libname %mklibname kmfl %{major}
+%define develname %mklibname kmfl -d
 
-Name:		%{name}
+Name:		libkmfl
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
-Version:	%{version}
-Release:	%mkrel 4
+Version:	0.9.6
+Release:	%mkrel 5
 Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/kmfl/%{name}-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libkmflcomp-devel 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 KMFL is a keyboarding input method which aims to bring Tavultesoft
@@ -48,6 +47,7 @@ Obsoletes:	%{mklibname kmfl 0 -d}
 Headers of %{name} for development.
 
 %prep
+
 %setup -q
 
 %build
@@ -55,22 +55,24 @@ Headers of %{name} for development.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+
 %makeinstall_std
 
 # remove documents (AUTHORS, COPYING etc.)
 # they should be installed by %doc
 rm -rf %{buildroot}/%{_prefix}/doc/
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
 %endif
+
 %if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
+
+%clean
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
