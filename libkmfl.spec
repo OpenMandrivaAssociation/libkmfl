@@ -1,3 +1,4 @@
+# has odd internal linking problems
 %define _disable_ld_no_undefined 1
 
 %define major 0
@@ -6,8 +7,8 @@
 
 Name:		libkmfl
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
-Version:	0.9.6
-Release:	%mkrel 6
+Version:	0.9.7
+Release:	%mkrel 1
 Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
@@ -76,7 +77,7 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/libkmfl.so.*
+%{_libdir}/libkmfl.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
