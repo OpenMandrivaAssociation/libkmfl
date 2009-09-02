@@ -8,7 +8,7 @@
 Name:		libkmfl
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
 Version:	0.9.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
