@@ -1,19 +1,17 @@
-# has odd internal linking problems
-%define _disable_ld_no_undefined 1
-
 %define major 0
 %define libname %mklibname kmfl %{major}
 %define develname %mklibname kmfl -d
 
 Name:		libkmfl
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
-Version:	0.9.7
-Release:	%mkrel 2
+Version:	0.9.8
+Release:	%mkrel 1
 Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://kmfl.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/kmfl/%{name}-%{version}.tar.gz
-BuildRequires:	libkmflcomp-devel 
+Patch0:		libkmfl-0.9.8-fix-linkage.patch
+BuildRequires:	kmflcomp-devel >= %{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -48,10 +46,11 @@ Obsoletes:	%{mklibname kmfl 0 -d}
 Headers of %{name} for development.
 
 %prep
-
 %setup -q
+%patch0 -p0
 
 %build
+%define _disable_ld_no_undefined 1
 %configure2_5x
 %make
 
