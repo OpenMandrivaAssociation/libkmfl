@@ -2,6 +2,8 @@
 %define libname %mklibname kmfl %{major}
 %define devname %mklibname kmfl -d
 
+%define _disable_lto 1
+
 Summary:	Keystroke interpreter for Tavultesoft Keyman files
 Name:		libkmfl
 Version:	0.9.9
