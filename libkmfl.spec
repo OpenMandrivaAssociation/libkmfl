@@ -13,6 +13,11 @@ License:	GPLv2+
 Url:		https://kmfl.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/kmfl/%{name}-%{version}.tar.gz
 Patch0:		libkmfl-0.9.8-fix-linkage.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	kmflcomp-devel >= %{version}
 
 %description
